@@ -1,0 +1,115 @@
+/* pages/addOrder/add_order.wxss */
+
+.login_form {
+  width: 100%;
+}
+
+.title {
+  position: relative;
+  padding: 12rpx 0;
+  margin: 0 5%;
+}
+
+.select_num {
+  height: 68rpx;
+  background: #04a1e7;
+  padding: 0;
+  width: 100%;
+  margin: 0;
+  padding-left: 5%;
+}
+
+.select_num .lable {
+  color: white !important;
+  top: 0 !important;
+}
+
+.login_form  input {
+  padding-left: 10%;
+  font-size: 28rpx;
+}
+
+.select_num {
+  font-size: 28rpx;
+  color: white;
+}
+
+.select_num view {
+  height: 68rpx;
+  line-height: 68rpx;
+  display: inline-block;
+}
+
+.select_num view:nth-child(2) {
+  margin-left:53rpx;
+
+}
+
+.select_num view:nth-child(3) {
+  margin-left: 60rpx;
+}
+
+.login_form .lable {
+  font-weight: bold;
+  font-size: 28rpx;
+  color: #04a1e7;
+  width:120rpx;
+
+}
+
+.drop_down {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  background-color: white;
+  overflow: auto;
+  z-index: 100;
+}
+
+picker {
+  width: 100%;
+}
+
+.picker {
+  font-size: 28rpx;
+  margin-left: 168rpx;
+}
+
+.drop_down .search_content {
+  height: 66rpx;
+  line-height: 66rpx;
+}
+
+.drop_down view view {
+  font-size: 14px;
+  text-align: left;
+  border-bottom: 1px dashed grey;
+  width: 90%;
+  margin: auto;
+}
+
+.btn-area button {
+  margin-top: 65rpx;
+  background: #04a1e7;
+  color: white;
+}
+
+.meter {
+  width: 36rpx;
+  height: 36rpx;
+  vertical-align: text-bottom;
+}
+
+.btn-area {
+  width: 90%;
+  margin: auto;
+}
+
+.nav {
+  padding: 0;
+  height: 68rpx;
+  border-bottom: 1px solid grey;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}

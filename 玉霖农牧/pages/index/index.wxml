@@ -1,0 +1,39 @@
+<view style='padding:0;margin:0'>
+ <image class="banner" mode='widthFix' src="../../images/banner.png"/>
+</view>
+<view class='name'>
+   <image src='/images/seting.png' mode='widthFix'></image>
+   <view>玉霖农牧溯源管理系统</view>
+</view>
+<view class='yemian'>
+ <navigator url="/pages/admission/admission?name=种苗" class='ruchang1'>
+   <image mode='widthFix' class='ruchang' src='../../images/seed.png'/>
+   <view class='ps'>种苗采购信息管理</view>
+ </navigator>
+  <navigator url="/pages/admission/admission?name=饲料" class='ruchang1'>
+   <image mode='widthFix' class='ruchang' src='../../images/fertilizers.png'/>
+   <view class='ps'>饲料采购信息管理</view>
+ </navigator>
+  <navigator url="/pages/admission/admission?name=兽药" class='ruchang1'>
+   <image mode='widthFix' class='ruchang' src='../../images/pesticide.png'/>
+   <view class='ps'>兽药采购信息管理</view>
+ </navigator>
+   <navigator url="/pages/admission/admission?name=投料" class='ruchang1'>
+   <image mode='widthFix' class='ruchang' src='../../images/ruchang.png'/>
+   <view class='ps'>投料采购信息管理</view>
+ </navigator>
+   <navigator url="/pages/admission/admission?name=养殖基础" class='ruchang1'>
+   <image mode='widthFix' class='ruchang' src='../../images/5.png'/>
+   <view class='ps'>养殖基础信息管理</view>
+ </navigator>
+   <navigator url="/pages/admission/admission?name=养殖过程" class='ruchang1'>
+   <image mode='widthFix' class='ruchang' src='../../images/flour.png'/>
+   <view class='ps'>养殖过程信息管理</view>
+ </navigator>
+ <view class='ruchang1'>
+   <image mode='widthFix' class='ruchang' src='../../images/more.png'/>
+   <view class='ps'>更多</view>
+ </view>
+ <view>
+ </view>
+</view>

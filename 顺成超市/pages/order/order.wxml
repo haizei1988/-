@@ -1,0 +1,43 @@
+<!--pages/order/order.wxml-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view style='padding:0 15px;'>
+  <scroll-view scroll-y>
+    <view id="order_code" class="scroll-view-item bc_green" wx:for='{{orderData}}'>
+  
+      <view style='width:100%;'>
+        <text decode='true'>订单编号：</text>
+        <view>{{item.order_num}}</view>
+      </view>
+      <view style='width:100%;'>
+        <text decode='true'>配送日期：</text>
+        <view>{{item.updated_at}}</view>
+      </view>
+      <view>
+        <text decode='true'>配送门店：</text>
+        <view>{{item.store_bak.store_name}}</view>
+      </view>
+      <view>
+        <text decode='true'>负&nbsp;&nbsp;责&nbsp;&nbsp;人：</text>
+        <view>{{item.order_creator}}</view>
+      </view>
+      <!-- <view>
+        <text decode='true'>单&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：</text>
+        <view>{{item.num_unit}}</view>
+      </view>
+      <view wx:if="{{item.weight!=='0'}}">
+        <text decode='true'>重&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：</text>
+        <view>{{item.weight}}</view>
+      </view>
+      <view wx:if="{{item.trace_out_num!=='0'}}" >
+        <text decode='true'>数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：</text>
+        <view>{{item.trace_out_num}}</view>
+      </view> -->
+      <text class='line'></text>
+      <view data-item="{{item}}"  class='status'>等待配送</view>
+  
+    </view>
+
+
+  </scroll-view>
+  <view wx:if='{{orderData.length==0}}' class='no_order'>暂无订单</view>
+</view>

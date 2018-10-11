@@ -1,0 +1,26 @@
+<loading hidden='{{loadingHidden}}'>正在登陆</loading>
+<view class='login'>
+  <image src='/images/login_bg.png' mode='scaleToFill' class='login_bg'></image>
+</view>
+<view class='login-title'>
+  <image src='/images/logo.png' mode='widthFix' class='login_icon'></image>
+</view>
+<view class='logo_wenzi'>
+顺成追溯系统
+</view>
+<view class='logo_Eng'>
+Shuncheng traceability system
+</view>
+<form bindsubmit="formSubmit" bindreset="formReset" class='login_form'>
+  <view>
+    <view class='lable'>账号</view>
+    <input placeholder='请输入您的账号' name='phone'></input>
+  </view>
+  <view>
+    <view class='lable'>密码</view>
+    <input placeholder='请输入您的密码' type='password' name='password'></input>
+  </view>
+  <view class="btn-area">
+    <button formType="submit">登陆</button>
+  </view>
+</form>

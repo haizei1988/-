@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/planting_process/planting_process",
+    "pages/planting_basis/planting_basis",
+    "pages/admission_detail/admission_detail",
+    "pages/fertilizer_procurement/fertilizer_procurement",
+    "pages/pesticide_procurement/pesticide_procurement",
+    "pages/seed_procurement/seed_procurement",
+    "pages/login/login",  
+    "pages/admission/admission",
+    "pages/search/search",
+    "pages/logs/logs",
+    "pages/out/out"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "莱芜重要产品追溯",
+    "navigationBarTextStyle": "black"
+  }
+}

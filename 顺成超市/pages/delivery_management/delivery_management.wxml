@@ -1,0 +1,96 @@
+<!--pages/order/order.wxml-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view style='padding:0 15px;'>
+  <scroll-view scroll-y style="height:100vh;">
+    <view id="order_code" class="scroll-view-item bc_green" wx:for='{{orderData}}'>
+
+      <view style='width:100%;display:flex'>
+        <text decode='true'>配送单编号：</text>
+        <view>{{item.delivery_num}}</view>
+      </view>
+      <view style='display:flex'>
+        <text decode='true'>创建日期：</text>
+        <view>{{item.updated_at}}</view>
+      </view>
+      <view style='display:flex'>
+        <text decode='true'>配送门店：</text>
+        <view>{{item.store_bak.store_name}}</view>
+      </view>
+      <view style='display:flex'>
+        <text decode='true'>负&nbsp;&nbsp;&nbsp;责&nbsp;&nbsp;&nbsp;人：</text>
+        <view>{{item.delivery_creator}}</view>
+      </view>
+      <!-- <view>
+        <text decode='true'>单&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：</text>
+        <view>{{item.num_unit}}</view>
+      </view>
+      <view wx:if="{{item.weight!=='0'}}">
+        <text decode='true'>重&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：</text>
+        <view>{{item.weight}}</view>
+      </view>
+      <view wx:if="{{item.trace_out_num!=='0'}}" >
+        <text decode='true'>数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：</text>
+        <view>{{item.trace_out_num}}</view>
+      </view> -->
+      <text class='line'></text>
+      <view data-index="{{index}}" bindtap='edit' class='status'>查看详情
+      </view>
+    </view>
+  </scroll-view>
+  <view wx:if='{{orderData.length==0}}' class='no_order'>暂无订单</view>
+</view>
+
+
+<!-- 详情 -->
+<view class="container8" hidden="{{selectbao}}">
+  <scroll-view scroll-y class="container8_1">
+    <view class="container8_1_p1">顺成配送单</view>
+    <view class="list" style='width:100%;display:flex;'>
+      <text decode='true'>配送单编号：</text>
+      <view style='font-size:28rpx'>{{orderData[index].delivery_num}}</view>
+    </view>
+    <view class="list" style='display:flex'>
+      <text decode='true'>配送日期：</text>
+      <view style='font-size:28rpx'>{{orderData[index].updated_at}}</view>
+    </view>
+    <view class="list" style='display:flex'>
+      <text decode='true'>配送门店：</text>
+      <view style='font-size:28rpx'>{{orderData[index].store_bak.store_name}}</view>
+    </view>
+    <view class="list" style='width:100%;display:flex'>
+      <text decode='true'>配送门店编号：</text>
+      <view style='font-size:28rpx'>{{orderData[index].delivery_num}}</view>
+    </view>
+    <view class="list" style='display:flex'>
+      <text decode='true'>负&nbsp;责&nbsp;人：</text>
+      <view style='font-size:28rpx'>{{orderData[index].delivery_creator}}</view>
+    </view>
+    <text class='line'></text>
+    <view wx:for="{{shuzu}}" wx:if="{{shuzu.length!=0}}">
+      <view class="list" style='width:100%;display:flex;'>
+        <text decode='true'>商品名称：</text>
+        <view style='font-size:28rpx'>{{item.goods_bak.goods_name}}</view>
+      </view>
+      <view  class="list" style='display:flex'>
+        <text decode='true'>商品编码：</text>
+        <view style='font-size:28rpx'>{{item.goods_bak.goods_code}}</view>
+      </view>
+      <view  class="list" style='display:flex'>
+        <text decode='true'>配送价格：</text>
+        <view style='font-size:28rpx'>{{item.price}}</view>
+      </view>
+      <view wx:for="{{item.batch}}">
+      <view  class="list" style='width:100%;display:flex'>
+        <text decode='true'>进场批次号：</text>
+        <view style='font-size:28rpx'>{{item.entrance_batch}}</view>
+      </view>
+      <view  class="list" style='display:flex'>
+        <text decode='true'>数&nbsp;&nbsp;量：</text>
+        <view style='font-size:28rpx'>{{item.amount}}</view>
+      </view>
+      </view>
+
+    </view>
+    <view class='addlist' bindtap='sure'>确定</view>
+  </scroll-view>
+</view>

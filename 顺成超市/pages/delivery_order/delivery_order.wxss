@@ -1,0 +1,280 @@
+/* pages/order/order.wxss */
+
+text {
+  font-weight: bold;
+  /* width:200rpx */
+}
+
+text, #order_code>view {
+  display: inline-block;
+  font-size: 24rpx;
+}
+
+#order_code>view {
+  width: 50%;
+}
+
+#order_code {
+  background: #fff;
+  box-shadow: 0 5px 10px -8px rgba(0, 0, 0, 0.25);
+  margin-bottom: 4px;
+  margin-top: 25rpx;
+}
+
+#order_code>view text {
+  width:190rpx;
+  text-align: right;
+  margin-top: 20rpx
+}
+
+#order_code>view view {
+  width: calc(100% - 60px);
+  display: inline-block;
+  vertical-align: top;
+  margin-top:20rpx
+}
+
+.line {
+  border-bottom: 1px solid;
+  width: 100% !important;
+  float: left;
+  margin-top: 15rpx;
+}
+
+.status {
+  width: 100% !important;
+  text-align: center;
+  font-size: 24rpx;
+  color: #04a1e7;
+  padding: 15rpx 0;
+}
+.no_order{
+  font-size: 16px;
+  text-align: center
+}
+
+
+.container8 {
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  position: absolute;
+  top: 0;
+  background: rgba(54, 53, 58, 0.60);
+ left:0;
+
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.container8_1 {
+  position: relative;
+  top: 5%;
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  background: #fff;
+  box-shadow: 0 5px 14px -10px rgba(0, 0, 0, 0.50);
+  z-index: 100;
+  padding:10rpx;
+
+  /* border-radius: 5px */
+}
+
+.container8_1_p1 {
+  font-family: PingFang-SC-Regular;
+  font-size: 14px;
+  color: #36353a;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.container8_1_p2 {
+  font-family: PingFang-SC-Regular;
+  font-size: 24rpx;
+  color: #36353a;
+  letter-spacing: 0;
+  text-align: justify;
+  position: relative;
+  bottom: 120rpx;
+  padding: 0 30rpx;box-sizing:border-box;
+ 
+}
+
+.container8_2 {
+  position: relative;
+  top: 36.9%;
+  left:38%
+}
+
+.container8_2_1 {
+  padding-top: 1.9%;box-sizing:border-box;
+  width: 26.7%;
+  height: 4.5%;
+}
+.container1 {
+  width: 90%;
+  height: 70rpx;
+  display: flex;
+  margin: auto;
+  line-height: 70rpx;
+  font-family: PingFang-SC-Bold;
+  font-size: 14px;
+  color: #04a1e7;
+  letter-spacing: -0.1px;
+  text-align: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #4a4a4a;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.drop_down {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  text-align: center;
+  background-color: white;
+  overflow: auto;
+  z-index: 100;
+
+}
+
+.drop_down .search_content {
+  height: 66rpx;
+  line-height: 66rpx;
+}
+
+.drop_down view view {
+  font-size: 14px;
+  text-align: left;
+  border-bottom: 1px dashed grey;
+  width: 90%;
+  margin: auto;
+}
+
+.content {
+  width: 100%;
+  text-align: left;
+  padding-left: 70rpx;
+}
+
+.container1>view {
+  /* color: red; */
+  display: flex;
+  flex-direction: row;
+}
+
+.container1>view>view {
+  color: red;
+}
+
+.input {
+  width: 100%;
+  height: 70rpx;
+  /* border: 1px solid green;  */
+  font-family: PingFang-SC-Regular;
+  font-size: 14px;
+  color: #c4c4c4;
+  letter-spacing: -0.1px;
+}
+
+picker {
+  width: 100%;
+}
+
+.guodu {
+  width: 100%;
+  height: 76rpx;
+  line-height: 76rpx;
+  background: #04a1e7;
+  display: flex;
+  flex-direction: row;
+  padding-left: 50rpx;
+  box-sizing: border-box;
+  font-family: PingFang-SC-Bold;
+  font-size: 14px;
+  color: #fff;
+  letter-spacing: -0.1px;
+}
+
+.btn {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+  margin-top: 10rpx;
+}
+
+.jinchang {
+  display: flex;
+  padding-left: 100rpx;
+  box-sizing: border-box;
+  flex-direction: row;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.button {
+  width: 89.3%;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: 30rpx auto;
+  background: #04a1e7;
+  border-radius: 4px;
+  font-family: PingFang-SC-Bold;
+  font-size: 18px;
+  color: #fff;
+  letter-spacing: -0.1px;
+  text-align: center;
+}
+
+.picker {
+  width: 100%;
+  height: 60rpx;
+  /* border: 1px solid green;  */
+}
+.nav{
+  width: 265rpx;
+}
+.caozuo{
+  display: flex
+}
+.lists{
+  width:95%;
+  margin: auto;
+  padding: 10rpx;
+  border: 1px  dashed #0066CC;
+  margin-top: 10rpx;
+  height: 234rpx
+}
+.addlist{
+  background-color: #04a1e7;
+  color: white;
+  font-size: 14px;
+  width: 12%;
+  margin-left: 2.5%;
+  margin-top: 20rpx;
+  text-align: center;
+  border-radius: 2px;
+  padding: 10rpx;
+  line-height: 50rpx;
+  height: 50rpx;
+}
+.peisong{
+  background-color: #04a1e7;
+  color: white;
+  font-size: 14px;
+  width: 20%;
+  margin-top: 2.5%;
+  text-align: center;
+  border-radius: 2px;
+}

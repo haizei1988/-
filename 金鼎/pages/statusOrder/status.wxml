@@ -1,0 +1,12 @@
+<!--pages/statusOrder/status.wxml-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view>
+  <scroll-view scroll-y  data-page-name='goods'  bindscrolltolower='loadPaageMore'>
+    <view class='orders' wx:for='{{orderData}}'>
+      <view class='order_code'>订单{{item.id}}</view>
+      <navigator url='../ship/ship?id={{item.id}}'>
+       <button >发货</button>
+      </navigator>
+    </view>
+  </scroll-view>
+</view>

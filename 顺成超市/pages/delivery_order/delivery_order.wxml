@@ -1,0 +1,156 @@
+<!--pages/order/order.wxml-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<form class="form" bindsubmit="formSubmit" report-submit="true" wx:if='{{orderData.length!=0}}'>
+  <view style='padding:0 15px;'>
+    <!-- <scroll-view scroll-y>
+    <view >
+      <view id="order_code" class="scroll-view-item bc_green"  wx:for="{{orderData}}">
+        <view style='display:flex'>
+          <text decode='true'>商品名称：</text>
+          <view>{{item.goods_bak.goods_name}}</view>
+        </view>
+        <view style='display:flex'>
+          <text decode='true'>需求数量：</text>
+          <view>{{item.amount}}</view>
+        </view>
+        <view style='display:flex'>
+          <text decode='true'>单价：</text>
+          <view>
+            <input value='{{item.goods_bak.price}}(可修改)' />
+          </view>
+        </view>
+       <text class='line'></text>
+      <view data-item="{{item}}" bindtap='edit' class='status'>操作</view>
+      </view>
+
+
+
+
+
+
+
+
+      <view style='display:flex'>
+        <text decode='true'>配送日期：</text>
+        <view style='font-size:14px'>{{items.updated_at}}</view>
+      </view>
+      <view style='display:flex'>
+        <text decode='true'>配送门店：</text>
+        <view style='font-size:14px'>{{items.store_bak.store_name}}</view>
+      </view>
+    </view>
+    <button class="peisong"  formType="submit">
+    配送
+    </button>
+
+  </scroll-view> -->
+
+    <view>
+      <scroll-view scroll-y>
+        <!-- <view style='display:flex' wx:for="{{orderData}}">
+        <text decode='true'>需求数量：{{item.amount}}</text>
+        <text decode='true' style='margin:0 40rpx'>商品名称：{{item.goods_bak.goods_name}}</text>
+        <text decode='true' style='color:red'>配送总数量：{{totalNum}}</text>
+      </view> -->
+        <view class='caozuo'>
+          <view class='addlist' bindtap='addList'>添加</view>
+          <view class='addlist' bindtap='delList'>删除</view>
+        </view>
+        <view wx:for="{{orderData}}" class="lists" wx:key="{{index}}">
+          <view class='container1'>
+            <view class='nav'>
+              <view>*</view>商品名称</view>
+            <view class='content'>
+              <input placeholder='请选择商品名称' class='input' value='{{item.goods_bak.goods_name}}' data-index="{{index}}" data-goods_id="{{item.goods_id}}" bindinput="bindKeyInput" bindfocus='Varieties_feeding' bindblur='goods' placeholder-class="input" />
+            </view>
+          </view>
+
+          <view class='container1'>
+            <view class='nav'>
+              <view>*</view>
+              <text space="ensp">数量</text>
+            </view>
+            <view class='row content'>
+              <input placeholder='请选择数量' class='input' value='{{item.amount}}' class='input' bindchange="inputChange1" data-index="{{index}}" type="digit" bindblur="numbers" placeholder-class="input" />
+            </view>
+          </view>
+          <view class='container1'>
+            <view class='nav'>
+              <view>*</view>
+              <text space="ensp">备注</text>
+            </view>
+            <view class='row content'>
+              <input placeholder='请输入' class='input' bindchange="inputChange1" name="jinchang_num" data-index="{{index}}" placeholder-class="input" />
+            </view>
+          </view>
+        </view>
+        <!-- 商品名称 -->
+        <view class='drop_down' style="top:{{height1}}rpx" hidden='{{array_goods_status}}'>
+          <scroll-view scroll-y bindscrolltolower='loadPaageMore' data-page-name='goods' style="height: {{height}}px" wx:if='{{array_goods.length}}'>
+            <view wx:for='{{array_goods}}' class='search_content'>
+              <view bindtap='bingId' data-id='{{item}}' data-idd="{{item.id}}">{{item.goods_name}}</view>
+              <input hidden='true' name="array_goods" value='{{goodsId}}'></input>
+            </view>
+          </scroll-view>
+          <scroll-view scroll-y style="height: {{height}}px" wx:if='{{!array_goods.length && init}}'>
+            <view style='font-size:31rpx;margin-top:10rpx;'>
+              暂未找到！
+            </view>
+          </scroll-view>
+        </view>
+        <view>
+          <!-- <view style='display:flex'>
+            <text decode='true'>配送日期：</text>
+            <picker mode="date" style='font-size:14px' value="{{date}}" end="2050-01-01" bindchange="bindDateChange">
+              <view style='font-size:14px'>
+                {{date}}
+              </view>
+            </picker>
+      
+          </view> -->
+
+
+
+
+
+            <view class='container1'>
+              <view class='nav'>
+                <view>*</view>配送日期：</view>
+                  <picker mode="date" class='content' style='font-size:14px' value="{{date}}" end="2050-01-01" bindchange="bindDateChange">
+              <view style='font-size:14px' class="input">
+                {{date}}
+              </view>
+            </picker>
+            </view>
+          <view >
+            <view class='container1'>
+              <view class='nav'>
+                <view>*</view>配送门店：</view>
+              <view class='content'>
+                <input placeholder='请选择供应商' class='input' value='{{supplierName}}' bindinput="bindKeyInput3" bindfocus='supplier_name' placeholder-class="input" />
+              </view>
+            </view>
+
+
+            <view class='drop_down' hidden='{{supplier_name}}'>
+              <scroll-view scroll-y data-page-name='goods' style="height: {{height}}px" wx:if='{{supplier.length}}'>
+                <view wx:for='{{supplier}}' class='search_content'>
+                  <view bindtap='bingId3' data-id='{{item}}'>{{item.store_name}}</view>
+                  <input hidden='true' value='{{supplierId}}'></input>
+                </view>
+              </scroll-view>
+              <scroll-view scroll-y style="height: {{height}}px" wx:if='{{!supplier.length && init}}'>
+                <view style='font-size:31rpx;margin-top:10rpx;'>
+                  暂未找到该商品！
+                </view>
+              </scroll-view>
+            </view>
+          </view>
+        </view>
+        <button class="peisong" formType="submit">确定</button>
+      </scroll-view>
+    </view>
+   
+  </view>
+</form>
+ <view wx:if='{{orderData.length==0}}' class='no_order'>暂无订单</view>

@@ -1,0 +1,69 @@
+<!--index.wxml-->
+<view class="index">
+  <image src='/images/bar_ship.png' mode='widthFix' wx:if="{{userInfo === 'ship'}}"></image>
+  <image src='/images/bar_oder.jpg' mode='widthFix' wx:else></image>
+</view>
+<view class='nav'>
+  <image src='/images/seting.png' mode='widthFix'></image>
+  <view wx:if="{{userInfo === 'order'}}">金鼎配送客户端</view>
+  <view wx:else>金鼎配送商家端</view>
+</view>
+<view class='main' wx:if="{{userInfo === 'order'}}">
+  <view style='display:flex; justify-content: space-around'>
+    <navigator hover-class="none" style='display: inline-block' url='/pages/admission/admission'>
+        <view>
+        <image src='/images/fertilizers.png' style='width:250rpx;' mode='widthFix'></image>
+        <text>入场信息</text>
+      </view>
+      </navigator>
+
+      <navigator hover-class="none" style='display: inline-block' url='/pages/add_orders/add_orders'>
+        <view>
+          <image src='/images/make_order.png' style='width:250rpx;' mode='widthFix' ></image>
+          <text>创建订单</text>
+        </view>
+      </navigator>
+
+  </view>
+  <view  style='display:flex; justify-content: space-around;text-align:center;margin-top:20rpx'>
+      <navigator hover-class="none" style='display: inline-block' url='/pages/order/order'>
+        <view style='width:250rpx;text-align:center'>
+        <image src='/images/status.png' style='width:250rpx;' mode='widthFix'></image>
+        <text >订单列表</text>
+      </view>
+      </navigator>
+      <navigator hover-class="none" style='display: inline-block' url='/pages/delivery_management/delivery_management'>
+      <view>
+      <image src='/images/3.png' style='width:250rpx;' mode='widthFix'></image>
+      <text>配送单管理</text>
+    </view>
+    </navigator>
+  </view>
+
+<!-- 
+  <view bindtap='camera'>
+    <image src='/images/qrcode.png' mode='widthFix'></image>
+    <text>扫码收货</text>
+  </view> -->
+</view>
+<view class='main' wx:else>
+  <navigator hover-class="none" style='display: inline-block' url='/pages/add_orders/add_orders'>
+    <view>
+      <image src='/images/make_order.png' mode='widthFix'></image>
+      <text>创建订单</text>
+    </view>
+  </navigator>
+<!-- <navigator hover-class="none" style='display: inline-block' url='../statusOrder/status'>
+  <view>
+    <image src='/images/deal.png' mode='widthFix'></image>
+    <text>待处理订单</text>
+  </view>
+</navigator> -->
+  <navigator hover-class="none" style='display: inline-block' url='/pages/delivery_management/delivery_management'>
+    <view>
+    <image src='/images/3.png' mode='widthFix'></image>
+    <text>配送单管理</text>
+  </view>
+  </navigator>
+
+</view>

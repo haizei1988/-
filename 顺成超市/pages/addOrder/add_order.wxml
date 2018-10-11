@@ -1,0 +1,72 @@
+<!--pages/addOrder/add_order.wxml-->
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<view class='login_form'>
+  <form bindsubmit="formSubmit">
+    <view class='title nav'>
+      <view class='lable'>商品名称</view>
+      <input placeholder='请务必输入商品名称' bindinput='getOrderData' bindfocus='getOrderData' name='goods_name' value='{{goods_name}}'></input>
+    </view>
+    <view class='drop_down' hidden='{{order_status}}'>
+      <scroll-view scroll-y style="height: {{height}}px" wx:if='{{array_goods.length}}'>
+        <view wx:for='{{array_goods}}' class='search_content'>
+          <view bindtap='bingId' data-id='{{item}}'>{{item.goods_name}}</view>
+          <input hidden='true' name="goods_name" value='{{goods_name}}'></input>
+          <input hidden='true' name="goods_id" value='{{goods_id}}'></input>
+        </view>
+      </scroll-view>
+      <scroll-view scroll-y style="height: {{height}}px" wx:else>
+        <view style='font-size:31rpx;margin-top:10rpx;'>
+          暂未找到该商品！
+        </view>
+      </scroll-view>
+
+    </view>
+    <view class='title nav' style='padding:0;'>
+      <view class='lable'>单位</view>
+      <!-- <picker bindchange="unit" value="{{unit_index}}" range="{{unit}}" style='padding-bottom:14rpx;'>
+        <view class="picker" style='color:#9b9b9b'>
+          {{unit[unit_index]}}
+        </view>
+        <input name='num_unit' hidden='true' value='{{unit[unit_index]}}'></input>
+      </picker> -->
+      <input name='num_unit' placeholder='请输入单位' value='{{num_unit}}'></input>
+    </view>
+
+    <picker mode="date" value="{{date}}" start="{{date}}" end="2117-09-01" bindchange="bindDateChange">
+
+      <view class='title nav'>
+        <view class='lable'>配送日期</view>
+        <input placeholder='请务必选择配送日期' name='delivery_date' value='{{delivery_date}}'></input>
+      </view>
+    </picker>
+
+    <view class='title nav' style='padding-top:0;border:none;'>
+      <view class='lable' style='top:5rpx;'>规格</view>
+      <input placeholder='可输入规格'></input>
+    </view>
+    <view class='title select_num'>
+      <view class='lable'>计量：</view>
+      <view bindtap="onSelect" data-meter='in'>
+        <image src='/images/btn.png' hidden='{{meterIn}}' mode='widthFix' class='meter'></image>
+        <image src='/images/btn_after.png' hidden='{{meterOut}}' mode='widthFix' class='meter'> </image>
+        进场数量
+      </view>
+      <view bindtap="onSelect" data-meter='out'>
+        <image src='/images/btn.png' hidden='{{meterOut}}' mode='widthFix' class='meter'></image>
+        <image src='/images/btn_after.png' hidden='{{meterIn}}' mode='widthFix' class='meter'> </image>
+        重量
+      </view>
+    </view>
+    <view class='title nav' hidden='{{meterOut}}'>
+      <view class='lable'>数量</view>
+      <input placeholder='请务必输入产品的数量' name='trace_out_num' value='{{trace_out_num}}'></input>
+    </view>
+    <view class='title nav' hidden='{{meterIn}}'>
+      <view class='lable'>重量（kg）</view>
+      <input placeholder='请务必输入产品的重量' name='weight' value='{{weight}}'></input>
+    </view>
+    <view class="btn-area">
+      <button formType="submit">立即下单</button>
+    </view>
+  </form>
+</view>

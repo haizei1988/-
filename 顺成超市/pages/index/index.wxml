@@ -1,0 +1,63 @@
+<!--index.wxml-->
+<view class="index">
+  <image src='/images/bar_ship.png' mode='widthFix' wx:if="{{userInfo === 'ship'}}"></image>
+  <image src='/images/bar_oder.png' mode='widthFix' wx:else></image>
+</view>
+<view class='nav'>
+  <image src='/images/seting.png' mode='widthFix'></image>
+  <view wx:if="{{userInfo === 'order'}}">顺成配送客户端</view>
+  <view wx:else>顺成配送商家端</view>
+</view>
+<view class='main' wx:if="{{userInfo === 'order'}}">
+  
+  <navigator hover-class="none" style='display: inline-block' url='/pages/admission/admission'>
+    <view>
+    <image src='/images/fertilizers.png' mode='widthFix'></image>
+    <text>入场信息</text>
+  </view>
+  </navigator>
+
+  <navigator hover-class="none" style='display: inline-block' url='/pages/add_orders/add_orders'>
+    <view>
+      <image src='/images/make_order.png' mode='widthFix'></image>
+      <text>创建订单</text>
+    </view>
+  </navigator>
+  <navigator hover-class="none" style='display: inline-block' url='/pages/order/order'>
+    <view>
+    <image src='/images/status.png' mode='widthFix'></image>
+    <text>订单列表</text>
+  </view>
+  </navigator>
+  <navigator hover-class="none" style='display: inline-block' url='/pages/delivery_management/delivery_management'>
+    <view>
+    <image src='/images/3.png' mode='widthFix'></image>
+    <text>配送单管理</text>
+  </view>
+  </navigator>
+<!-- 
+  <view bindtap='camera'>
+    <image src='/images/qrcode.png' mode='widthFix'></image>
+    <text>扫码收货</text>
+  </view> -->
+</view>
+<view class='main' wx:else>
+  <navigator hover-class="none" style='display: inline-block' url='/pages/add_orders/add_orders'>
+    <view>
+      <image src='/images/make_order.png' mode='widthFix'></image>
+      <text>创建订单</text>
+    </view>
+  </navigator>
+<!-- <navigator hover-class="none" style='display: inline-block' url='../statusOrder/status'>
+  <view>
+    <image src='/images/deal.png' mode='widthFix'></image>
+    <text>待处理订单</text>
+  </view>
+</navigator> -->
+  <navigator hover-class="none" style='display: inline-block' url='/pages/delivery_management/delivery_management'>
+    <view>
+    <image src='/images/3.png' mode='widthFix'></image>
+    <text>配送单管理</text>
+  </view>
+  </navigator>
+</view>

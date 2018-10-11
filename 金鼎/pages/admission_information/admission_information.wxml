@@ -1,0 +1,261 @@
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<form class="form" bindsubmit="formSubmit" report-submit="true">
+  <view class='container1'>
+    <view class='nav'>
+      <view>*</view>商品名称</view>
+    <view class='content'>
+      <!-- <picker bindchange="picker_goods" value="{{index}}" range="{{array_goods_name}}">
+        <view class="picker" style='color:#9b9b9b'>
+          {{array_goods_name[index]}}
+        </view>
+      </picker> -->
+      <input placeholder='请选择商品名称' class='input' value='{{goodsName}}' bindinput="bindKeyInput" bindfocus='Varieties_feeding'   placeholder-class="input" />
+    </view>
+  </view>
+
+  <!-- 商品名称 -->
+
+  <view class='drop_down' hidden='{{array_goods_status}}'>
+    <scroll-view scroll-y bindscrolltolower='loadPaageMore' data-page-name='goods' style="height: {{height}}px" wx:if='{{array_goods.length}}'>
+      <view wx:for='{{array_goods}}' class='search_content'>
+        <view bindtap='bingId' data-id='{{item}}' data-idd="{{item.id}}">{{item.goods_name}}</view>
+        <input hidden='true'  name="array_goods" value='{{goodsId}}'></input>
+      </view>
+    </scroll-view>
+    <scroll-view scroll-y style="height: {{height}}px" wx:if='{{!array_goods.length && init}}'>
+      <view style='font-size:31rpx;margin-top:10rpx;'>
+        暂未找到！
+      </view>
+    </scroll-view>
+  </view>
+
+  
+  <view class='container1'>
+    <view class='nav'>
+      <view>*</view>供应商</view>
+    <view class='content'>
+      <!-- <picker bindchange="supplier" value="{{index}}" range="{{supplier_name}}">
+        <view class="picker" style='color:#9b9b9b'>
+          {{supplier_name[index2]}}
+        </view>
+      </picker> -->
+      <input placeholder='请选择供应商' class='input' value='{{supplierName}}' bindinput="bindKeyInput3" bindfocus='supplier_name' placeholder-class="input" />
+    </view>
+  </view>
+
+
+  <view class='drop_down' hidden='{{supplier_name}}'>
+    <scroll-view scroll-y  bindscrolltolower='loadPaageMore' data-page-name='goods' style="height: {{height}}px" wx:if='{{supplier.length}}'>
+      <view wx:for='{{supplier}}' class='search_content'>
+        <view bindtap='bingId3' data-id='{{item}}'>{{item.supplier_name}}</view>
+        <input hidden='true' value='{{supplierId}}'></input>
+      </view>
+    </scroll-view>
+    <scroll-view scroll-y style="height: {{height}}px" wx:if='{{!supplier.length && init}}'>
+      <view style='font-size:31rpx;margin-top:10rpx;'>
+        暂未找到！
+      </view>
+    </scroll-view>
+  </view>
+
+
+  <view class='container1' style='border:none;'>
+    <view class='nav'>
+      <view>*</view>进场日期</view>
+    <view class='content'>
+      <picker mode="date" value="{{date}}" start="2018-01-01" bindchange="bindDateChange2">
+        <!-- <view class='goods' hidden='{{hidden}}' style='color:#9b9b9b'>请务必选择商品名称</view> -->
+        <view class="picker" style='color:#9b9b9b'>
+          {{date}}
+        </view>
+      </picker>
+      <!-- <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+    <view class="picker">
+      当前选择: {{time}}
+    </view>
+  </picker> -->
+      <!-- <input placeholder='请输入您的账户名' class='input' placeholder-class="input" /> -->
+    </view>
+  </view>
+  <!-- 选择类型 -->
+  <view class='guodu'>
+    <view>计量</view>
+    <view class='jinchang' bindtap='jinchang_num'>
+      <view>
+        <image wx:if="{{!jinchang_num}}" class="btn" src="../../images/btn_after.png" />
+        <image wx:if="{{jinchang_num}}" class="btn" src="../../images/btn.png" />
+      </view>
+      <view>进场数量</view>
+    </view>
+    <view class='jinchang' bindtap='zhongliang'>
+      <view>
+        <image wx:if="{{!zhongliang}}" class="btn" src="../../images/btn_after.png" />
+        <image wx:if="{{zhongliang}}" class="btn" src="../../images/btn.png" />
+      </view>
+      <view>重量</view>
+    </view>
+  </view>
+
+  <!-- ================ -->
+  <!-- jinchang -->
+  <view class='jinchang_num' hidden='{{jinchang_num}}'>
+    <view class='container1'>
+      <view class='nav'>
+        <view>*</view>单价</view>
+      <view class='row content'>
+        <input placeholder='请输入' bindchange="inputChange2" class='input' name="danjia" type="digit" placeholder-class="input" />元
+      </view>
+    </view>
+    <view class='container1'>
+      <view class='nav'>
+        <view>*</view>
+        <text space="ensp">进场数量</text>
+      </view>
+      <view class='row content'>
+        <input placeholder='请输入' class='input' bindchange="inputChange1" name="jinchang_num" type="digit" placeholder-class="input" />
+      </view>
+    </view>
+    <view class='container1'>
+      <view class='nav'>
+        <text space="ensp"> 总价</text>
+      </view>
+      <view class='row content'>
+        <input placeholder='请输入' bindchange="dd" class='input' disabled="false" value='{{zongjia}}' placeholder-class="input" />元
+      </view>
+    </view>
+
+     <view class='container1'>
+    <view class='nav'>
+      <text space="ensp"> 单位</text>
+
+    </view>
+    <view class='content'>
+      <picker bindchange="danwei" value="{{index_speci2}}" range="{{danwei}}">
+        <!-- <view class='goods' hidden='{{hidden}}' style='color:#9b9b9b'>请务必选择商品名称</view> -->
+        <view class="picker" style='color:#9b9b9b'>
+          {{danwei[index_speci2]}}
+
+        </view>
+        <input placeholder='请输入' class='input' hidden='true' name="danwei" value='{{danwei[index_speci2]}}' placeholder-class="input" />
+      </picker>
+
+    </view>
+  </view>
+
+
+
+
+  </view>
+
+  <view class='zhongliang' hidden='{{zhongliang}}'>
+    <view class='container1'>
+      <view class='nav'>
+        <view>*</view>单价</view>
+      <view class='row content'>
+        <input placeholder='请输入' class='input' bindchange="inputChange21" name="danjia2" type="digit" placeholder-class="input" />元
+      </view>
+    </view>
+    <view class='container1'>
+      <view class='nav'>
+        <view>*</view>
+        <text space="ensp">重量</text>
+      </view>
+      <view class='row content'>
+        <input placeholder='请输入' class='input' bindchange="inputChange11" name="weight" type="digit" placeholder-class="input" />kg
+      </view>
+    </view>
+    <view class='container1'>
+      <view class='row nav'>
+        <text space="ensp"> 总价</text>
+      </view>
+      <view class='content'>
+        <input placeholder='请输入' bindchange="dd" class='input' disabled="false" value='{{zhong_zong}}' placeholder-class="input" />元
+      </view>
+    </view>
+  </view>
+
+
+
+  <view class='container1'>
+    <view class='nav'>
+      <view>*</view>检疫结果</view>
+    <view class='content'>
+      <picker bindchange="result" value="{{index}}" range="{{result_name}}">
+        <!-- <view class='goods' hidden='{{hidden}}' style='color:#9b9b9b'>请务必选择商品名称</view> -->
+        <view class="picker" style='color:#9b9b9b'>
+          {{result_name[index4]}}
+        </view>
+      </picker>
+      <!-- <input placeholder='请输入您的账户名' class='input' placeholder-class="input" /> -->
+    </view>
+  </view>
+  <view class='container1'>
+    <view class='nav'>
+      <text space="ensp"> 规格</text>
+
+    </view>
+    <view class='content'>
+      <picker bindchange="specification" value="{{index_speci}}" range="{{specification}}">
+        <!-- <view class='goods' hidden='{{hidden}}' style='color:#9b9b9b'>请务必选择商品名称</view> -->
+        <view class="picker" style='color:#9b9b9b'>
+          {{specification[index_speci]}}
+
+        </view>
+        <input placeholder='请输入' class='input' hidden='true' name="specification" value='{{specification[index_speci]}}' placeholder-class="input" />
+      </picker>
+
+    </view>
+  </view>
+
+  <view class='container1'>
+    <view style='padding-left:14rpx;' class='nav'>
+      检疫证进场数
+    </view>
+    <view class='content'>
+      <input placeholder='请输入' class='input' name="num" placeholder-class="input" />
+    </view>
+  </view>
+
+
+
+  <view class='container1'>
+    <view style='padding-left:14rpx;' class='nav'>
+      运输车牌号
+    </view>
+    <view class='content'>
+      <input placeholder='请输入' class='input' name="car_num" placeholder-class="input" />
+    </view>
+  </view>
+
+  <view class='container1'>
+    <view style='padding-left:14rpx;' class='nav'>
+      凭证类型</view>
+    <view class='content'>
+
+      <picker bindchange="style" value="{{index}}" range="{{style}}">
+        <!-- <view class='goods' hidden='{{hidden}}' style='color:#9b9b9b'>请务必选择商品名称</view> -->
+        <view class="picker" style='color:#9b9b9b'>
+          {{style[index6]}}
+        </view>
+      </picker>
+
+
+
+      <!-- <input placeholder='请输入' class='input' name="style" placeholder-class="input" /> -->
+    </view>
+  </view>
+
+  <view class='container1'>
+    <view style='padding-left:14rpx;' class='nav'>
+      凭证通号</view>
+    <view class='content'>
+      <input placeholder='请输入' class='input' name="Voucher_num" placeholder-class="input" />
+    </view>
+  </view>
+
+
+
+  <button class="button" formType="submit">
+    立即创建
+  </button>
+</form>

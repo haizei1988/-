@@ -1,0 +1,235 @@
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<form class="form" bindsubmit="formSubmit" report-submit="true">
+  <view class='container'>
+    <view>
+      <view>*</view>投料名称</view>
+    <view class='content'>
+      <input placeholder='请输入' class='input' name="feed_name" placeholder-class="input" />
+    </view>
+  </view>
+
+  <view class='container'>
+    <view>
+      <view>*</view>投料品种
+    </view>
+    <view class='content'>
+      <view>
+        <input placeholder='请选择投料品种' class='input' value='{{goodsName}}' bindinput="bindKeyInput" bindfocus='Varieties_feeding'   placeholder-class="input" /> </view>
+    </view>
+  </view>
+  <!-- 投料品种 -->
+
+  <view class='drop_down' hidden='{{array_goods_status}}'>
+    <scroll-view scroll-y bindscrolltolower='loadPaageMore' data-page-name='goods' style="height: {{height}}px" wx:if='{{array_goods.length}}'>
+      <view wx:for='{{array_goods}}' class='search_content'>
+        <view bindtap='bingId' data-id='{{item}}'>{{item.variety_name}}</view>
+        <input hidden='true' name="array_goods" value='{{goodsId}}'></input>
+      </view>
+    </scroll-view>
+    <scroll-view scroll-y style="height: {{height}}px" wx:if='{{!array_goods.length && init}}'>
+      <view style='font-size:31rpx;margin-top:10rpx;'>
+        暂未找到该商品！
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class='container'>
+    <view>
+      <view>*</view>投料品厂商</view>
+    <view class='content'>
+      <input placeholder='请选择投料品厂商' class='input' value='{{feederName}}' bindinput="bindKeyInput2" bindfocus='feeder_name' placeholder-class="input" />
+    </view>
+  </view>
+  <view class='drop_down' hidden='{{feeder_name}}'>
+    <scroll-view scroll-y bindscrolltolower='loadPaageMore2' data-page-name='feeder' style="height: {{height}}px" wx:if='{{feeder.length}}'>
+      <view wx:for='{{feeder}}' class='search_content'>
+        <view bindtap='bingId2' data-id='{{item}}'>{{item.manufactur_name}}</view>
+        <input hidden='true' name="array_goods" value='{{feederId}}'></input>
+      </view>
+    </scroll-view>
+    <scroll-view scroll-y style="height: {{height}}px" wx:if='{{!feeder.length && init}}'>
+      <view style='font-size:31rpx;margin-top:10rpx;'>
+        暂未找到该商品！
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- <view class='drop_down' hidden='{{feeder_name}}'>
+    <scroll-view scroll-y wx:if='{{feeder.length}}'>
+      <view wx:for='{{feeder}}' class='search_content'>
+        <view bindtap='bingId2' data-id='{{item}}'>{{item.manufactur_name}}</view>
+        <input hidden='true' value='{{feederId}}'></input>
+      </view>
+    </scroll-view>
+    <scroll-view scroll-y style="height: {{height}}px" wx:if='{{!feeder.length && init}}'>
+      <view style='font-size:31rpx;margin-top:10rpx;'>
+        暂未找到该商品！
+      </view>
+    </scroll-view>
+  </view> -->
+
+  <view class='container'>
+    <view>
+      <view>*</view>生产批次码</view>
+    <view class='content'>
+      <input placeholder='请输入' class='input' name="production_code" placeholder-class="input" />
+    </view>
+  </view>
+
+  <view class='container'>
+    <view>
+      <view>*</view>检测结果</view>
+    <view class='content'>
+      <picker bindchange="result" value="{{index}}" range="{{result_name}}">
+        <!-- <view class='goods' hidden='{{hidden}}' style='color:#9b9b9b'>请务必选择商品名称</view> -->
+        <view class="picker" style='color:#9b9b9b'>
+          {{result_name[index4]}}
+        </view>
+      </picker>
+      <!-- <input placeholder='请输入您的账户名' class='input' placeholder-class="input" /> -->
+    </view>
+  </view>
+
+  <view class='container'>
+    <view>
+      <view>*</view>生产日期</view>
+    <view class='content'>
+      <picker mode="date" value="{{date}}" start="2018-01-01" bindchange="bindDateChange2">
+        <!-- <view class='goods' hidden='{{hidden}}' style='color:#9b9b9b'>请务必选择商品名称</view> -->
+        <view class="picker" style='color:#9b9b9b'>
+          {{date}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class='container'>
+    <view>
+      <view>*</view>有效期类型</view>
+    <view class='content'>
+      <picker bindchange="style" value="{{index}}" range="{{style}}">
+        <!-- <view class='goods' hidden='{{hidden}}' style='color:#9b9b9b'>请务必选择商品名称</view> -->
+        <view class="picker" style='color:#9b9b9b'>
+          {{style[index6]}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class='container'>
+    <view>
+      <view>*</view>有效期</view>
+    <view class='content'>
+      <input placeholder='请输入' class='input' name="validity_period" type='digit' placeholder-class="input" />
+    </view>
+  </view>
+
+  <view class='container'>
+    <view>
+      <view>*</view>供货商</view>
+    <view class='content'>
+      <input placeholder='请选择供货商' class='input' value='{{supplierName}}' bindinput="bindKeyInput3" bindfocus='supplier_name' placeholder-class="input" />
+    </view>
+  </view>
+
+  <!-- <view class='drop_down' hidden='{{supplier_name}}'>
+    <view wx:for='{{supplier}}' class='search_content'>
+      <view bindtap='bingId3' data-id='{{item}}'>{{item.supplier_name}}</view> 
+       <input hidden='true' value='{{supplierId}}'></input> 
+    </view>
+  </view> -->
+
+  <view class='drop_down' hidden='{{supplier_name}}'>
+    <scroll-view scroll-y bindscrolltolower='loadPaageMore' data-page-name='goods' style="height: {{height}}px" wx:if='{{supplier.length}}'>
+      <view wx:for='{{supplier}}' class='search_content'>
+        <view bindtap='bingId3' data-id='{{item}}'>{{item.supplier_name}}</view>
+        <input hidden='true' value='{{supplierId}}'></input>
+      </view>
+    </scroll-view>
+    <scroll-view scroll-y style="height: {{height}}px" wx:if='{{!supplier.length && init}}'>
+      <view style='font-size:31rpx;margin-top:10rpx;'>
+        暂未找到该商品！
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- <view class='drop_down' hidden='{{supplier_name}}'>
+    <scroll-view scroll-y wx:if='{{supplier.length}}'>
+      <view wx:for='{{supplier}}' class='search_content'>
+        <view bindtap='bingId3' data-id='{{item}}'>{{item.supplier_name}}</view>
+        <input hidden='true' value='{{supplierId}}'></input>
+      </view>
+    </scroll-view>
+    <scroll-view scroll-y style="height: {{height}}px" wx:if='{{!supplier.length && init}}'>
+      <view style='font-size:31rpx;margin-top:10rpx;'>
+        暂未找到该商品！
+      </view>
+    </scroll-view>
+  </view> -->
+
+  <view class='container'>
+    <view>
+      <view>*</view>销售单号</view>
+    <view class='content'>
+      <input placeholder='请输入' class='input' name="sales_order_number" placeholder-class="input" />
+    </view>
+  </view>
+
+  <view class='container'>
+    <view>
+      <view>*</view>采购日期</view>
+    <view class='content'>
+      <picker mode="date" value="{{date}}" start="2018-01-01" bindchange="bindDateChange3">
+        <!-- <view class='goods' hidden='{{hidden}}' style='color:#9b9b9b'>请务必选择商品名称</view> -->
+        <view class="picker" style='color:#9b9b9b'>
+          {{date2}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class='container'>
+    <view>
+      <view>*</view>采购数量</view>
+    <view class='content'>
+      <input placeholder='请输入' class='input' name="purchase_quantity" type='digit' placeholder-class="input" />
+    </view>
+  </view>
+
+  <view class='container'>
+    <view>
+    <view>*</view>单位
+      <!-- <text space="ensp"> 单位</text> -->
+    </view>
+      <view class='content'>
+      <input placeholder='请输入' class='input' name="unit"  placeholder-class="input" />
+    </view>
+    <!-- <view class='content' >
+      <checkbox-group bindchange="danwei">
+        <label class="checkbox" wx:for="{{danwei}}" >
+          <checkbox value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+        </label>
+      </checkbox-group>
+    </view> -->
+  </view>
+
+  <view class='container'>
+    <view>
+    <view>*</view>规格
+    </view>
+       <view class='content'>
+      <input placeholder='请输入' class='input' type='digit' name="specification"  placeholder-class="input" />
+    </view>
+    <!-- <view class='content'>
+      <checkbox-group bindchange="checkboxChange">
+        <label class="checkbox" wx:for="{{items}}" style='width:20rpx;height:20rpx'>
+          <checkbox value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+        </label>
+      </checkbox-group>
+    </view> -->
+  </view>
+
+  <button class="button" formType="submit">
+    立即创建
+  </button>
+</form>

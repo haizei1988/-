@@ -1,0 +1,39 @@
+<view style='padding:0;margin:0'>
+ <image class="banner" mode='widthFix' src="../../images/banner.png"/>
+</view>
+<view class='name'>
+   <image src='/images/seting.png' mode='widthFix'></image>
+   <view>富甲庄园溯源管理系统</view>
+</view>
+<view class='yemian'>
+ <navigator url="/pages/admission/admission?name=种子" class='ruchang1'>
+   <image mode='widthFix' class='ruchang' src='../../images/seed.png'/>
+   <view class='ps'>种子采购信息管理</view>
+ </navigator>
+  <navigator url="/pages/admission/admission?name=肥料" class='ruchang1'>
+   <image mode='widthFix' class='ruchang' src='../../images/fertilizers.png'/>
+   <view class='ps'>肥料采购信息管理</view>
+ </navigator>
+  <navigator url="/pages/admission/admission?name=农药" class='ruchang1'>
+   <image mode='widthFix' class='ruchang' src='../../images/pesticide.png'/>
+   <view class='ps'>农药采购信息管理</view>
+ </navigator>
+   <navigator url="/pages/admission/admission?name=投料采购" class='ruchang1'>
+   <image mode='widthFix' class='ruchang' src='../../images/ruchang.png'/>
+   <view class='ps'>投料采购信息管理</view>
+ </navigator>
+   <navigator url="/pages/admission/admission?name=种植基础" class='ruchang1'>
+   <image mode='widthFix' class='ruchang' src='../../images/pesticide.png'/>
+   <view class='ps'>种植基础信息管理</view>
+ </navigator>
+   <navigator url="/pages/admission/admission?name=种植过程" class='ruchang1'>
+   <image mode='widthFix' class='ruchang' src='../../images/ruchang.png'/>
+   <view class='ps'>种植过程信息管理</view>
+ </navigator>
+ <view class='ruchang1'>
+   <image mode='widthFix' class='ruchang' src='../../images/more.png'/>
+   <view class='ps'>更多</view>
+ </view>
+ <view>
+ </view>
+</view>

@@ -1,0 +1,13 @@
+<navigator class='container1' url="/pages/admission_information/admission_information">
+  入场信息添加
+</navigator>
+
+<view class='container1' bindtap='camera'>
+  扫描二维码查询
+</view>
+<navigator class='container1' url="/pages/search/search">
+   输入产品编号查询
+</navigator>
+
+<!-- <input placeholder-class="input1" placeholder='输入产品编号查询'/> -->
+

@@ -1,0 +1,30 @@
+{
+  "pages": [
+        "pages/index/index",
+    "pages/add_orders2/add_orders",
+        "pages/delivery_management/delivery_management",
+
+    "pages/add_orders/add_orders",
+   
+    "pages/admission_information/admission_information",
+    "pages/login/login",
+    "pages/ship/ship",
+    "pages/statusOrder/status",
+    "pages/addOrder/add_order",
+    "pages/order/order",
+    "pages/logs/logs",
+    "pages/out/out",
+    "pages/search/search",
+
+    "pages/admission/admission"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#37363B",
+    "navigationBarTitleText": "莱芜重要产品追溯",
+    "navigationBarTextStyle": "#ffffff"
+  },
+  "networkTimeout": {
+    "request": 5000
+  }
+}

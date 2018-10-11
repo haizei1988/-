@@ -1,0 +1,23 @@
+<!--pages/addOrder/add_order.wxml-->
+<view class='login_form'>
+  <form bindsubmit="formSubmit">
+    <view class='title'>
+      <view class='lable'>单价（元）</view>
+      <input placeholder='请务必输入单价' name='price' value='{{price}}'></input>
+    </view>
+    <view class='title'>
+      <view class='lable'>车辆信息</view>
+      <input placeholder='请务必输入车辆信息' name='translate_car_id' value='{{translate_car_id}}'></input>
+    </view>
+
+    <view class='title'>
+      <view class='lable'>运输人员</view>
+      <input placeholder='请务必输入运输人员' name='driver_person_id' value='{{driver_person_id}}'></input>
+    </view>
+
+
+    <view class="btn-area">
+      <button formType="submit">立即发货</button>
+    </view>
+  </form>
+</view>

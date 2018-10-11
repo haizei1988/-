@@ -1,0 +1,77 @@
+/* pages/addOrder/add_order.wxss */
+
+.login_form {
+  width: 100%;
+}
+
+.title {
+  position: relative;
+  padding: 12rpx 0;
+  margin: 0 5%;
+}
+
+.select_num {
+  height: 76rpx;
+  background: #04a1e7;
+  padding: 0;
+  width: 100%;
+  margin: 0;
+  padding-left: 5%;
+}
+
+.select_num .lable {
+  color: white !important;
+  top: 0 !important;
+}
+
+.login_form  input {
+  border-bottom: 1px solid #4a4a4a;
+  padding-left: 25%;
+  font-size: 28rpx;
+  padding-bottom: 14rpx;
+}
+
+.select_num {
+  font-size: 28rpx;
+  color: white;
+}
+
+.select_num view {
+  height: 76rpx;
+  line-height: 76rpx;
+  display: inline-block;
+}
+
+.select_num view:nth-child(2) {
+  margin-left: 150rpx;
+}
+
+.select_num view:nth-child(3) {
+  margin-left: 60rpx;
+}
+
+.login_form .lable {
+  font-weight: bold;
+  float: left;
+  font-size: 28rpx;
+  color: #04a1e7;
+  position: absolute;
+  top: 16rpx;
+}
+
+.btn-area button {
+  margin-top: 65rpx;
+  background: #04a1e7;
+  color: white;
+}
+
+.meter {
+  width: 36rpx;
+  height: 36rpx;
+  vertical-align: text-bottom;
+}
+
+.btn-area {
+  width: 90%;
+  margin: auto;
+}
